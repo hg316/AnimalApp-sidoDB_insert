@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="com.sds.apitodb.model.SignguDAO">
+    <!-- 단일 insert 문 실행 -->
+    <insert id="insertAll">
+	    INSERT INTO signgu (orgCd, orgdownNm, uprCd)
+	    VALUES
+	    <if test="list != null and !list.isEmpty()">
+	        <foreach collection="list" item="item" separator=",">
+	            (#{item.orgCd}, #{item.orgdownNm}, #{item.uprCd})
+	        </foreach>
+	    </if>
+	</insert>
+    
+    <delete id="delete">
+    	delete from signgu
+    </delete>
+</mapper>
