@@ -3,7 +3,7 @@ package com.sds.apitodb.domain;
 import lombok.Data;
 
 @Data
-public class SidoDTO {
+public class Sido {
 	private String orgCd;
 	private String orgdownNm;
 }

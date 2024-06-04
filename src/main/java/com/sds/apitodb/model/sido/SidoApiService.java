@@ -1,4 +1,4 @@
-package com.sds.apitodb.model;
+package com.sds.apitodb.model.sido;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.sds.apitodb.domain.SidoDTO;
+import com.sds.apitodb.domain.Sido;
 
 @Service
 public class SidoApiService {
@@ -28,7 +28,7 @@ public class SidoApiService {
     public List call() throws IOException {
     	
     	String sidoCdResponse = null;
-    	List<SidoDTO> sidoList= null;
+    	List<Sido> sidoList= null;
         
         try {
         	StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido"); /*URL*/
@@ -64,7 +64,7 @@ public class SidoApiService {
 	        JSONArray array = (JSONArray) json.get("item");
 	        
 	        Gson gson = new Gson();
-	        Type shelterArray = new TypeToken<List<SidoDTO>>() {}.getType();
+	        Type shelterArray = new TypeToken<List<Sido>>() {}.getType();
 	        sidoList = gson.fromJson(array.toJSONString(), shelterArray);
 	        
         } catch(Exception e) {
